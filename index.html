@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Домашнее задание №13-14</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <script type="text/template" id='test_template'>
+			<div class="test">
+			<h1 class="title"><%= data.Title %></h1>
+            <form action=""> 
+                <% for (var i = 0; i < data.quest.length; i++ ) { %>
+                    <div class="block_question">
+                        <h2><%= data.quest[i].questionName%></h2>
+                        <ul>
+                            <% for (var j = 0; j < data.quest[i].variant.length; j++) { %>
+                                <li class="<%= data.quest[i].variant[j].class %>"><label><input type="checkbox"><span><%= data.quest[i].variant[j].answer %></span></label></li>
+                            <% }; %>
+                        </ul>
+                    </div>
+                <% }; %>
+                <input  class="js-check" type="submit" value="<%= data.result %>">
+            </form>
+			</div>
+    </script>
+    
+    
+	<div class="popup js-popup">
+		<div class="js-close close-popup">X</div>
+		<div class="result js-result"></div>
+	</div>
+    
+    <div class="overlay"></div>
+    
+    
+    <script src="addons/jquery.js"></script>
+    <script src="addons/template.js"></script>
+    <script src="addons/scripts.js"></script>
+</body>
+</html>
